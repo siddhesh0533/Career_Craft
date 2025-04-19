@@ -16,8 +16,10 @@ const MyJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
+        // const { data } = await axios.get(
+        //   "http://localhost:4000/api/v1/job/getmyjobs",
         const { data } = await axios.get(
-          "http://localhost:4000/api/v1/job/getmyjobs",
+          `${import.meta.env.VITE_API_URL}/api/v1/job/getmyjobs`,
           { withCredentials: true }
         );
         setMyJobs(data.myJobs);
@@ -46,8 +48,10 @@ const MyJobs = () => {
   //Function For Updating The Job
   const handleUpdateJob = async (jobId) => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
-    await axios
-      .put(`http://localhost:4000/api/v1/job/update/${jobId}`, updatedJob, {
+    // await axios
+    //   .put(`http://localhost:4000/api/v1/job/update/${jobId}`, updatedJob, {
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/v1/job/update/${jobId}`,{
         withCredentials: true,
       })
       .then((res) => {
@@ -61,8 +65,10 @@ const MyJobs = () => {
 
   //Function For Deleting Job
   const handleDeleteJob = async (jobId) => {
-    await axios
-      .delete(`http://localhost:4000/api/v1/job/delete/${jobId}`, {
+    // await axios
+    //   .delete(`http://localhost:4000/api/v1/job/delete/${jobId}`, {
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/v1/job/delete/${jobId}`,{
         withCredentials: true,
       })
       .then((res) => {

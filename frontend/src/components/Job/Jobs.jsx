@@ -9,8 +9,9 @@ const Jobs = () => {
   const navigateTo = useNavigate();
   useEffect(() => {
     try {
-      axios
-        .get("http://localhost:4000/api/v1/job/getall", {
+      // axios
+      //   .get("http://localhost:4000/api/v1/job/getall", {
+        axios.get(`${import.meta.env.VITE_API_URL}/api/v1/job/getall`, {
           withCredentials: true,
         })
         .then((res) => {

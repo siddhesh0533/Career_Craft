@@ -11,8 +11,10 @@ const JobDetails = () => {
   const { isAuthorized, user } = useContext(Context);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:4000/api/v1/job/${id}`, {
+    // axios
+    //   .get(`http://localhost:4000/api/v1/job/${id}`, {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/api/v1/job/${id}`, {
         withCredentials: true,
       })
       .then((res) => {
