@@ -10,7 +10,9 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 
 const app = express();
-config({ path: "./config/config.env" });
+// config({ path: "./config/config.env" });
+config({ path: "backend/.env" });
+
 
 app.use(
   cors({
